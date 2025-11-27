@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AnimeLab - Aprendiendo HTML, CSS y JavaScript</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">AnimeLab</h1>
+      <nav class="main-nav" id="mainNav">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Abrir menú">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link">Inicio</a></li>
+          <li><a href="#characters" class="nav-link">Personajes</a></li>
+          <li><a href="#contact" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+      <button id="themeBtn" class="theme-btn" title="Cambiar tema">🌙</button>
+      <button id="aboutBtn" class="btn btn-outline" title="Acerca de AnimeLab" aria-haspopup="dialog">Acerca de</button>
+    </div>
+  </header>
+
+<!-- bienvenidos -->
+  <main>
+    <section id="home" class="hero container">
+      <h2>Bienvenidos a AnimeLab</h2>
+      <p>Este sitio es sobre noticias y proximos estrenos de anime.</p>
+      <div class="quick-actions">
+        <button id="showHint" class="btn"></button>
+        <button onclick="document.querySelector('#gallery').scrollIntoView({behavior:'smooth'})" class="btn"></button>
+      </div>
+    </section>
+    <!-- mid personajes destacados -->
+    <section id="characters" class="container cards">
+      <h3>Personajes destacados</h3>
+      <div class="card-grid">
+        <article class="card">
+
+          <div class="avatar avatar-uma" aria-hidden="true"
+       style="
+         width: 80px;
+         height: 80px;
+         border-radius: 50%;
+         background-image: url('assets/images/tokai-teio-anime.jpg');
+         background-size: cover;
+         background-position: center cente;
+         background-repeat: no-repeat;
+         margin: 0 auto;
+       ">
+  </div>
+          <h4>Tokai Teio</h4>
+          <p>Uma Musume competitiva y energética, conocida por su velocidad de sprint.</p>
+          <p class="curiosity"><strong>Curiosidad:</strong> Su frase favorita: "¡Acelera hasta el final!"</p>
+          <button class="btn btn-outline" onclick="openProfileModal('Teio')">Ver Perfil</button>
+        </article>
+
+        <article class="card">
+          <div class="avatar avatar-uma" aria-hidden="true"
+       style="
+         width: 80px;
+         height: 80px;
+         border-radius: 50%;
+         background-image: url('assets/images/Kitasan-black-anime.jpg');
+         background-size: cover;
+         background-position: center cente;
+         background-repeat: no-repeat;
+         margin: 0 auto;
+       ">
+  </div>
+          <h4>Kitasan Black</h4>
+          <p>Uma Musume fuerte y con gran resistencia, toda una leyenda en pista.</p>
+          <p class="curiosity"><strong>Curiosidad:</strong> Su frase favorita: "La fuerza forja campeones."</p>
+          <button class="btn btn-outline" onclick="openProfileModal('Kitasan')">Ver Perfil</button>
+        </article>
+
+        <article class="card">
+          <div class="avatar avatar-uma" aria-hidden="true"
+       style="
+         width: 80px;
+         height: 80px;
+         border-radius: 50%;
+         background-image: url('assets/images/satono-diamond-anime.jpg');
+         background-size: cover;
+         background-position: center cente;
+         background-repeat: no-repeat;
+         margin: 0 auto;
+       ">
+  </div>
+          <h4>Satono Diamond</h4>
+          <p>Uma Musume elegante y estratégica, destaca por su paso constante y su inteligencia en carrera.</p>
+          <p class="curiosity"><strong>Curiosidad:</strong> Su frase favorita: "La estrategia gana tiempo."</p>
+          <button class="btn btn-outline" onclick="openProfileModal('Satono')">Ver Perfil</button>
+        </article>
+
+      
+        <article class="card">
+  <div class="avatar avatar-uma" aria-hidden="true"
+       style="
+         width: 80px;
+         height: 80px;
+         border-radius: 50%;
+         background-image: url('assets/images/mejiro-mcqueen-anime.jpg');
+         background-size: cover;
+         background-position: center cente;
+         background-repeat: no-repeat;
+         margin: 0 auto;
+       ">
+  </div>
+
+  <h4>Mejiro Maquen</h4>
+  <p>Uma Musume noble y elegante, famosa por su técnica refinada y consistencia en pista.</p>
+  <p class="curiosity"><strong>Curiosidad:</strong> Su frase favorita: "La elegancia marca el paso."</p>
+  <button class="btn btn-outline" onclick="openProfileModal('Mejiro')">Ver Perfil</button>
+
+</article>
+      </div>
+    </section>
+
+    
+    <div id="profileModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal-content" role="document">
+        <header class="modal-header">
+          <h2 id="modalName">Nombre</h2>
+          <button class="modal-close" id="modalClose" aria-label="Cerrar ventana">✕</button>
+        </header>
+        <div class="modal-body">
+          <img id="modalImg" class="modal-avatar avatar avatar-uma-large" alt="Avatar" />
+          <div class="modal-attribution" id="modalAttribution"></div>
+          <div class="modal-info">
+            <h3 id="modalTitle">Hikari Raceheart</h3>
+            <p id="modalDesc">Descripción extendida del personaje.</p>
+            <ul id="modalDetails">
+              <li><strong>Origen:</strong> Academia Starlight</li>
+              <li><strong>Habilidades:</strong> Aceleración final, resistencia elevada</li>
+              <li><strong>Frase célebre:</strong> "¡Alas, paso a la gloria!"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- galeria  -->
+    <section id="gallery-extended" class="container gallery-extended">
+      <h3>Galería</h3>
+      <p>Imágenes adicionales de personajes destacados.</p>
+      <div class="gallery-extended-grid">
+        <figure class="thumb thumb-extended" onclick="openLightbox('assets/images/Kitasan-black-anime.jpg')">
+          <img src="assets/images/Kitasan-black-anime.jpg" alt="Paisaje 1" loading="lazy" />
+          <figcaption class="caption">Kitasan Black</figcaption>
+        </figure>
+        <figure class="thumb thumb-extended" onclick="openLightbox('assets/images/mejiro-mcqueen-anime.jpg')">
+          <img src="assets/images/mejiro-mcqueen-anime.jpg" alt="Paisaje 2" loading="lazy" />
+          <figcaption class="caption">Mcqueen</figcaption>
+        </figure>
+        <figure class="thumb thumb-extended" onclick="openLightbox('assets/images/tokai-teio-anime.jpg')">
+          <img src="assets/images/tokai-teio-anime.jpg" alt="Paisaje 3" loading="lazy" />
+          <figcaption class="caption">Teio</figcaption>
+        </figure>
+
+         <figure class="thumb thumb-extended" onclick="openLightbox('assets/images/tokai-teio-anime.jpg')">
+          <img src="assets/images/satono-diamond-anime.jpg" alt="Paisaje 3" loading="lazy" />
+          <figcaption class="caption">Satono Diamond</figcaption>
+         </figure>
+        
+      </div>
+    </section>
+
+    <!-- noticias -->
+    <section id="news" class="container news">
+      <h3>Próximos Estrenos</h3>
+      <p>Últimas noticias y próximos lanzamientos.</p>
+      <div class="news-grid">
+        <article class="news-card">
+          <img class="news-img" src="assets/images/jujutsu-kaisen.jpg" alt="Estreno Carrera Estelar" loading="lazy" />
+          <div class="news-body">
+            <h4 class="news-title">¿Free Fire x Jujutsu Kaisen?</h4>
+            <div class="news-meta">16 Nov 2025</div>
+            <p class="news-desc">Se anuncia una nueva colaboración con jujutsu kaisen.</p>
+            <button class="btn btn-outline" data-title="¿Free Fire x Jujutsu Kaisen?" data-date="15 Nov 2025" data-img="assets/images/jujutsu-kaisen2.jpg" data-full="Detalles:Free Fire anunció una colaboración con Jujutsu Kaisen. El anuncio habría sido durante las finales globales de FFWS 2025 en Yakarta. Señalan que el lanzamiento sería en enero de 2026." onclick="openNewsModal(this)">Leer más</button>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <img class="news-img" src="assets/images/one-piece.jpg" alt="Evento Especial" loading="lazy" />
+          <div class="news-body">
+            <h4 class="news-title">¿El anime de One Piece tomará una pausa de tres meses?</h4>
+            <div class="news-meta">02 Dic 2025</div>
+            <p class="news-desc">Segun Eiichiro Oda el manga se tomara una pausa.</p>
+            <button class="btn btn-outline" data-title="¿One piece en pausa?" data-date="02 Dic 2025" data-img="assets/images/one-piece2.jpg" data-full="El anime de One Piece tomará una pausa de tres meses (enero a marzo de 2026). Cuando regrese en abril, arrancará con el arco de Elbaph y reducirá su producción anual a 26 episodios divididos en dos cours para mejorar el ritmo de la historia." onclick="openNewsModal(this)">Leer más</button>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <img class="news-img" src="assets/images/maomao.jpg" alt="Lanzamiento OVA" loading="lazy" />
+          <div class="news-body">
+            <h4 class="news-title">La serie The Apothecary Diaries volverá</h4>
+            <div class="news-meta">20 Ene 2026</div>
+            <p class="news-desc">Regresa La serie The Apothecary Diaries con su 3 temp y pelicula.</p>
+            <button class="btn btn-outline" data-title="¿3 temp y pelicula?" data-date="20 Ene 2026" data-img="assets/images/maomao2.jpg" data-full="Detalles: La serie The Apothecary Diaries volverá con su tercera temporada en octubre de 2026, y además tendrá una película para cines en diciembre de 2026 con una historia original escrita por la autora Natsu Hyuga.." onclick="openNewsModal(this)">Leer más</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <h3>Contacto</h3>
+      <form id="contactForm" class="form">
+        <label>Nombre
+          <input type="text" name="name" id="name" required />
+        </label>
+        <label>Correo
+          <input type="email" name="email" id="email" required />
+        </label>
+        <label>Mensaje
+          <textarea name="message" id="message" rows="4" required></textarea>
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn">Enviar</button>
+          <button type="reset" class="btn btn-outline">Limpiar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <p>AnimeLab • Proyecto educativo — HTML • CSS • JavaScript</p>
+    
+  </footer>
+
+  <!-- musiquita -->
+  <div class="audio-player" id="audioPlayer">
+    <audio id="siteAudio" preload="metadata">
+      <source src="assets/audio/theme-loop.mp3" type="audio/mpeg">
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+    <div class="audio-controls">
+      <button id="audioToggle" class="btn btn-outline" aria-pressed="false" aria-label="Reproducir música">🔈</button>
+      <button id="playPause" class="btn" title="Reproducir" aria-label="Reproducir">▶️</button>
+      <div class="vol-group">
+        <input id="volume" type="range" min="0" max="1" step="0.01" value="0.6" aria-label="Volumen" />
+        <button id="muteBtn" class="btn btn-outline" aria-pressed="false" title="Silenciar">🔇</button>
+      </div>
+      <div id="audioStatus" class="audio-status">Detenido</div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+    <img id="lightboxImg" alt="Vista ampliada" />
+  </div>
+
+  <!-- noticias -->
+  <div id="newsModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content" role="document">
+      <header class="modal-header">
+        <h2 id="newsModalTitle">Título</h2>
+        <div class="modal-controls">
+          <small id="newsModalDate" class="news-date"></small>
+          <button class="modal-close" id="newsModalClose" aria-label="Cerrar noticia">✕</button>
+        </div>
+      </header>
+      <div class="modal-body">
+        <img id="newsModalImg" class="modal-avatar" alt="Imagen noticia" />
+        <div class="modal-info">
+          <p id="newsModalFull">Texto completo de la noticia.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- creditos -->
+  <div id="aboutModal" class="modal about-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content" role="document">
+      <header class="modal-header">
+        <h2>Acerca de AnimeLab</h2>
+        <button class="modal-close" id="aboutClose" aria-label="Cerrar">✕</button>
+      </header>
+      <div class="modal-body">
+        <div class="about-grid">
+          <div>
+            <h3>Desarrolladores</h3>
+            <ul>
+              <li>Héctor Augusto Chan Gómez — Estudiante </li>
+            
+            </ul>
+            <p><strong>Grupo:</strong> 4A</p>
+            <p><strong>Asignatura:</strong> Aplicaciones Web (HTML/CSS/JS)</p>
+          </div>
+          <div>
+            <h3>Descripción</h3>
+            <p>AnimeLab es un proyecto educativo para aprender e integrar <strong>HTML</strong>, <strong>CSS</strong> y <strong>JavaScript</strong>. Incluye ejemplos de interactividad, diseño responsivo y buenas prácticas accesibles.</p>
+            <h3>Enlaces</h3>
+            <p>
+              <a href="#" target="_blank" rel="noopener">https://www.facebook.com/share/19MqDB7jKS/</a><br/>
+              
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
